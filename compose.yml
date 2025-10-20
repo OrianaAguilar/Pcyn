@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_DB: mydatabase # Sets the default database name
+      POSTGRES_USER: myuser # Sets the PostgreSQL username
+      POSTGRES_PASSWORD: mypassword # Sets the PostgreSQL password
+    ports:
+      - "5432:5432" # Maps host port 5432 to container port 5432, allowing external access
+    volumes:
+      - db_data:/var/lib/postgresql/data # Mounts a named volume to persist database data
+
+volumes:
+  db_data: # Defines the named volume for data persistence
