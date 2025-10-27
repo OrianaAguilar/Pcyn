@@ -1,18 +1,9 @@
-"use server";
-import { getProducts } from "./actions/products";
-//import { useEffect } from "react";
+'use server'
+import { permanentRedirect } from 'next/navigation'
+//import { revalidateTag } from 'next/cache'
+ 
 export default async function Page() {
- // useEffect(async () => {
-   const products = await getProducts();
- // }, []);
-  return (
-    <div>
-      <h1>Products</h1>
-      <ul>
-        {products.map((product) => (
-          <li key={product.id}>{product.name} {product.price}</li>
-        ))}
-      </ul>
-    </div>
-  );
+  permanentRedirect(`/products`) // Navigate to the new user profile
+return (<></>)
+
 }
